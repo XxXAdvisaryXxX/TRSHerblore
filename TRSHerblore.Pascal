@@ -6,14 +6,6 @@ type
    CLEAN,COMBINE
   );
 
-  ECleanHerbs = enum(
-  GUAM,KWUARM
-  );
-
-  EDirtyHerbs = enum(
-  GUAM,KWUARM
-  );
-
   THerbType=Record
     Grimy,Clean:TRSItem;
   end;
@@ -57,16 +49,6 @@ procedure TRSHerb.ItemInit;//inits herb items. Helps build herb bank items later
 begin
   self.Grimy.Kwuarm:= 'Grimy kwuarm';
   self.Clean.Kwuarm:= 'Kwuarm';
-end;
-
-procedure TRSHerb.BankItemInit;//inits herb items. Helps build herb bank items later down the line!
-begin
-
-end;
-
-procedure TRSHerb.MainInit;
-begin
-
 end;
 
 function TRSHerb.IsItemDepleted(Item:TRSItem):boolean;
@@ -143,25 +125,6 @@ begin
  self.MakeUnfinished('Kwuarm');
 end;
 
-function TRSHerb.AssignStates:EHerbActions;
-begin
-
-end;
-
-procedure TRSHerb.MainRun; //Uses previous function to link states to 1 to 1 actions.
-  var
-  action: EHerbActions;
-begin
- while GetTimeRunning < (MAX_RUNTIME_MINUTES * ONE_MINUTE) do
-
-  begin
-    action := Self.AssignStates;
-    WriteLn(action);
-    case action of
-
-    end;
-  end;
-end;
 
  var
  Herb:TRSHerb;
